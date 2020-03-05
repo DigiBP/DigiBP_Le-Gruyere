@@ -37,7 +37,7 @@
         <di:waypoint x="448" y="120" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_1726nwk_di" bpmnElement="Task_0e9oyde">
-        <dc:Bounds x="280" y="80" width="100" height="50" />
+        <dc:Bounds x="280" y="80" width="100" height="1" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
