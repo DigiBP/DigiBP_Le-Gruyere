@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_1leta2v" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
+  <decision id="Decision_0zjwmt2" name="Risk Rating">
+    <extensionElements>
+      <biodi:bounds x="157" y="81" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="ANY">
+      <input id="input_1" label="ApplicantAge">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>The applicant's age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1u5ws9s" label="MedicalHistory">
+        <inputExpression id="LiteralExpression_0eegvtl" typeRef="string">
+          <text>The applicant's medical history considering serious illnesses</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_14vc5rc">
+          <text>"good","bad"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_10g6xw2" label="Fitness">
+        <inputExpression id="LiteralExpression_195l1nr" typeRef="string">
+          <text>The applicant's sport activities</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_07bqczx">
+          <text>"regularly","occassionally","no sport"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1vpmhrv" label="Biometrics">
+        <inputExpression id="LiteralExpression_0onrij5" typeRef="string">
+          <text>The applicant's body measurements like blood pressure, cholesterol, BMI etc</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1cok3bi">
+          <text>"normal","extreme"</text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="Scoring" typeRef="string">
+        <outputValues id="UnaryTests_0el1h3r">
+          <text>"low","medium","high","very high","very low"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_02z3n4d">
+        <description>"Very low healthcare risks -&gt; very low insurance fee"</description>
+        <inputEntry id="UnaryTests_16p8m3a">
+          <text>&lt;25</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yqve18">
+          <text>"good"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1plw535">
+          <text>"regularly"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_070vyfj">
+          <text>"normal"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ao9d8u">
+          <text>"very low"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0baqmdi">
+        <description>"Low healthcare risks -&gt; low insurance fee"</description>
+        <inputEntry id="UnaryTests_0l6rfv9">
+          <text>&lt;25</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_020bqjz">
+          <text>"good"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10yzl0s">
+          <text>"occassionally","no sport"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i0twkn">
+          <text>"normal"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xsx8xv">
+          <text>"low"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10xos2r">
+        <description>"Medium healthcare risks -&gt; moderate insurance fee"</description>
+        <inputEntry id="UnaryTests_1fs1ycw">
+          <text>&lt;25</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10hxhij">
+          <text>"good"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e96lro">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nwyvki">
+          <text>"extreme"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hj8mhc">
+          <text>"medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rjx6d7">
+        <description>"Medium healthcare risks -&gt; moderate insurance fee"</description>
+        <inputEntry id="UnaryTests_09l8s9p">
+          <text>&lt;25</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sxr7m1">
+          <text>"bad"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s36bbv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g272ph">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11thbul">
+          <text>"medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09u175b">
+        <description>"Medium healthcare risks -&gt; moderate insurance fee"</description>
+        <inputEntry id="UnaryTests_1sogwcc">
+          <text>[25...60]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pcikhp">
+          <text>"good"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vdv11k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dpd6vo">
+          <text>"normal"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05xzipo">
+          <text>"medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hgn6i4">
+        <description>"High healthcare risks -&gt; high insurance fee"</description>
+        <inputEntry id="UnaryTests_0ff9lpr">
+          <text>[25...60]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10409bv">
+          <text>"good"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_063w9zw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12vnnfn">
+          <text>"extreme"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o29r11">
+          <text>"high"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vli02c">
+        <description>"High healthcare risks -&gt; high insurance fee"</description>
+        <inputEntry id="UnaryTests_0v170d6">
+          <text>[25...60]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d9mszh">
+          <text>"bad"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gu3nqr">
+          <text>"regularly"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bkvoi4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rmrm80">
+          <text>"high"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12tnsrb">
+        <description>"Medium healthcare risks -&gt; moderate insurance fee"</description>
+        <inputEntry id="UnaryTests_08ipi6c">
+          <text>&gt;60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jtrawy">
+          <text>"good"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sg928p">
+          <text>"regularly"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p16mlu">
+          <text>"normal"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aw62vl">
+          <text>"medium"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dz5ore">
+        <description>"High healthcare risks -&gt; high insurance fee"</description>
+        <inputEntry id="UnaryTests_1tpebxe">
+          <text>&gt;60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15f4qzg">
+          <text>"good"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t7vgyp">
+          <text>"occassionally","no sport"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eb371o">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m8je4f">
+          <text>"high"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09yh3eh">
+        <description>"High healthcare risks -&gt; high insurance fee"</description>
+        <inputEntry id="UnaryTests_10dghk3">
+          <text>&gt;60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cuwe2c">
+          <text>"bad"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08fyxq9">
+          <text>"regularly"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00fvsqi">
+          <text>"normal","extreme"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07ki4xc">
+          <text>"high"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g96wl7">
+        <description>"Very high healthcare risks -&gt; very high insurance fee"</description>
+        <inputEntry id="UnaryTests_0zyjlsa">
+          <text>&gt;=25</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00i433c">
+          <text>"bad"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_023t1ag">
+          <text>"occassionally","no sport"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lyxapx">
+          <text>"extreme"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lattb0">
+          <text>"very high"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
