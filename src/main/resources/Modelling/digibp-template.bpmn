@@ -14,7 +14,7 @@
       <bpmn:outgoing>SequenceFlow_051aerh</bpmn:outgoing>
     </bpmn:userTask>
   </bpmn:process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_2">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="digibp-template">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="173" y="102" width="36" height="36" />
