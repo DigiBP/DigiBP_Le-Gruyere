@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_0dppnm6" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
+  <decision id="preliminary-decision" name="Premilinary Decision">
+    <extensionElements>
+      <biodi:bounds x="470" y="220" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="InputClause_0wri7fr" label="Applicant Age">
+        <inputExpression id="LiteralExpression_04rp1ff" typeRef="integer">
+          <text>applicantAge</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0x1guur" label="Smoking">
+        <inputExpression id="LiteralExpression_1hitten" typeRef="string">
+          <text>applicantSmoking</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0f1d7e8">
+          <text>"Yes","No"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1e75nv2" label="Cancer">
+        <inputExpression id="LiteralExpression_0r54l0z" typeRef="string">
+          <text>applicantCancer</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0lhu22l">
+          <text>"Yes","No"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0k88671" label="Medical treatment">
+        <inputExpression id="LiteralExpression_0oykhff" typeRef="string">
+          <text>applicantTreatment</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_062ilgg">
+          <text>"Yes","No"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0oeyomv" label="BMI">
+        <inputExpression id="LiteralExpression_1dtfipc" typeRef="integer">
+          <text>applicantBmi</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="scoring" name="scoring" typeRef="string">
+        <outputValues id="UnaryTests_10swbbo">
+          <text>"reject","check","offer"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0un12k1" label="explanation" name="explanation" typeRef="string">
+        <outputValues id="UnaryTests_1squsir">
+          <text>"Make further check","Reject applicant","Creating offer"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0fy3wny" label="Price" name="policyPrice" typeRef="string">
+        <outputValues id="UnaryTests_1eanjq3">
+          <text>"no calculation possible"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0b222ee">
+        <description></description>
+        <inputEntry id="UnaryTests_06nmfpi">
+          <text>&lt; 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wggb50">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0khsjn1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16jif1y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r3fefy">
+          <text>[19..30]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19xnbpv">
+          <text>"check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0o815xh">
+          <text>"Make further check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ief4w6">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o1lmcl">
+        <inputEntry id="UnaryTests_0jiupxh">
+          <text>&lt; 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13qqtjq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ptg7jb">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cr11dj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s1vlm1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jzfgrn">
+          <text>"reject"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0q1cyc9">
+          <text>"Reject applicant"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1cr60is">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m0pmfj">
+        <description>Basis cost 200 multipliend with a risk factor of 1.2</description>
+        <inputEntry id="UnaryTests_1bxsc23">
+          <text>[18..25]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xjcl24">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05yflu6">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uyc5vc">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0remuku">
+          <text>[19..30]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03vh19e">
+          <text>"offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_102dol7">
+          <text>"Creating offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0xtaxpy">
+          <text>"240.00"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17ompyw">
+        <description>Basis cost 200 multipliend with a risk factor of 1.5 becaus of smoking</description>
+        <inputEntry id="UnaryTests_0esfmub">
+          <text>[18..25]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f0jmfw">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11734sj">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ul3fmh">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11rqq8s">
+          <text>[19..30]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07ludlx">
+          <text>"offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03ab8el">
+          <text>"Creating offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mb096p">
+          <text>"300.00"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1t93db3">
+        <inputEntry id="UnaryTests_1q8rp91">
+          <text>[18..25]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09wh8dk">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dikwxh">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g6d13r">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t9vlhm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0603zv1">
+          <text>"check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01rnefr">
+          <text>"Make further check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wa0ilu">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0taql7q">
+        <description>Basis cost 300 multipliend with a risk factor of 1.3 becaus of age</description>
+        <inputEntry id="UnaryTests_07syf9m">
+          <text>[26..65]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ak9agz">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wfp1ye">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_085lhfk">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vhc2bn">
+          <text>[21..30]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00ar3in">
+          <text>"offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1sheido">
+          <text>"Creating offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09u4yzs">
+          <text>"390.00"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yv8goh">
+        <inputEntry id="UnaryTests_18cx7lf">
+          <text>[26..65]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o6gapv">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kxdgbf">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cknltu">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dqx8qu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0beud40">
+          <text>"check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0f5wa25">
+          <text>"Make further check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07nvkz0">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0liyogs">
+        <description>Basis cost 300 multipliend with a risk factor of 1.5 becaus of age and smoking</description>
+        <inputEntry id="UnaryTests_18t37ts">
+          <text>[26..65]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03h4yl7">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00bt1kj">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cc1tvy">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z3vltt">
+          <text>[21..30]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qc8loe">
+          <text>"offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0g2tr4i">
+          <text>"Creating offer"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0xrvnvn">
+          <text>"480.00"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0n4yxtb">
+        <inputEntry id="UnaryTests_1gupmyh">
+          <text>[26..65]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eg2900">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1de3tyb">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ffesnj">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qszprz">
+          <text>[21..30]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tq7x10">
+          <text>"check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kb38f0">
+          <text>"Make further check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ab8haq">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_043y8k6">
+        <inputEntry id="UnaryTests_081z8nc">
+          <text>[26..65]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eowall">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jqpkna">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08a5r9i">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07nuf3t">
+          <text>[19..20]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_096obx2">
+          <text>"check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yn79nz">
+          <text>"Make further check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wb2fvc">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vy75sg">
+        <inputEntry id="UnaryTests_1hjwpjl">
+          <text>[26..65]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vsju0r">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ahyze5">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13jln3v">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xsjafo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0asqid6">
+          <text>"check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ipx9nj">
+          <text>"Make further check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_073zf0y">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03yvkro">
+        <inputEntry id="UnaryTests_1h18umv">
+          <text>[26..65]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ke06mi">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1it2z3w">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06g6e3u">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i5sm91">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02k9v9l">
+          <text>"reject"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xeis0x">
+          <text>"Reject applicant"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1eqmlgg">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m5p015">
+        <inputEntry id="UnaryTests_0xaa67r">
+          <text>[66..69]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15tz9no">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1faphf0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06n39sv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mxbkpi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kecsps">
+          <text>"check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yzw9dj">
+          <text>"Make further check"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13hopsn">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_079oxkb">
+        <inputEntry id="UnaryTests_0rjliuz">
+          <text>[66..69]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16cp04h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10exf6g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19ugylw">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l5ll6d">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1krggj6">
+          <text>"reject"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1apurxt">
+          <text>"Reject applicant"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ksgy2v">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19431nr">
+        <inputEntry id="UnaryTests_0wef4sb">
+          <text>&gt;= 70</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ddx6i8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0chxum2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17zac86">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v7pr81">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gij4bw">
+          <text>"reject"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1acv7la">
+          <text>"Reject applicant"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16iqzbe">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0phu8nn">
+        <inputEntry id="UnaryTests_1viym8g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e8t8pc">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0spt3ar">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f9virr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xzmxgc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tljgw0">
+          <text>"reject"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0hqvqfa">
+          <text>"Reject applicant"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0kjyedn">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06zqtn9">
+        <inputEntry id="UnaryTests_02ia9i2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v3iebq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fv5ux3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p7x5ly">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04h03dh">
+          <text>&gt;= 31</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16c9k8j">
+          <text>"reject"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ft3omz">
+          <text>"Reject applicant"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0deotv1">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13pwzyk">
+        <inputEntry id="UnaryTests_0rdn7bw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m8clii">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_030rin3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09h12vb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j19jdo">
+          <text>&lt; 19</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s91nc1">
+          <text>"reject"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fjld52">
+          <text>"Reject applicant"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18j8q5d">
+          <text>"no calculation possible"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
