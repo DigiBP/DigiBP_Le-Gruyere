@@ -1,0 +1,548 @@
+{
+    "name": "01_collect-customer-data-chatbot",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 397665,
+                "maxResults": 2
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "hook": {
+                        "label": "get-chatbot-data"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "responseId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "queryResult",
+                        "spec": [
+                            {
+                                "name": "queryText",
+                                "type": "text"
+                            },
+                            {
+                                "name": "parameters",
+                                "spec": [
+                                    {
+                                        "name": "Gender",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "FirstName",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "LastName",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Age",
+                                        "type": "number"
+                                    },
+                                    {
+                                        "name": "Address",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Smoker",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Cancer",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Email",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "PhoneNumber",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Weight",
+                                        "type": "number"
+                                    },
+                                    {
+                                        "name": "Height",
+                                        "type": "number"
+                                    }
+                                ],
+                                "type": "collection"
+                            },
+                            {
+                                "name": "allRequiredParamsPresent",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "fulfillmentText",
+                                "type": "text"
+                            },
+                            {
+                                "name": "fulfillmentMessages",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "text",
+                                            "spec": [
+                                                {
+                                                    "name": "text",
+                                                    "spec": {
+                                                        "type": "text"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            ],
+                                            "type": "collection"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "name": "outputContexts",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "name",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "parameters",
+                                            "spec": [
+                                                {
+                                                    "name": "no-input",
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "name": "no-match",
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "name": "Gender",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Gender.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "FirstName",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "FirstName.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "LastName",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "LastName.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Age",
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "name": "Age.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Address",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Address.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Smoker",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Smoker.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Cancer",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Cancer.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Email",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Email.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "PhoneNumber",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "PhoneNumber.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Weight",
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "name": "Weight.original",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "name": "Height",
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "name": "Height.original",
+                                                    "type": "text"
+                                                }
+                                            ],
+                                            "type": "collection"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "name": "intent",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "displayName",
+                                        "type": "text"
+                                    }
+                                ],
+                                "type": "collection"
+                            },
+                            {
+                                "name": "intentDetectionConfidence",
+                                "type": "number"
+                            },
+                            {
+                                "name": "languageCode",
+                                "type": "text"
+                            }
+                        ],
+                        "type": "collection"
+                    },
+                    {
+                        "name": "originalDetectIntentRequest",
+                        "spec": [
+                            {
+                                "name": "payload",
+                                "spec": [],
+                                "type": "collection"
+                            }
+                        ],
+                        "type": "collection"
+                    },
+                    {
+                        "name": "session",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "google-sheets:addRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 1211347
+            },
+            "mapper": {
+                "mode": "select",
+                "values": {
+                    "0": "{{timestamp}}",
+                    "1": "{{1.queryResult.parameters.Gender}}",
+                    "2": "{{1.queryResult.parameters.LastName}}",
+                    "3": "{{1.queryResult.parameters.FirstName}}",
+                    "7": "{{1.queryResult.parameters.Age}}",
+                    "8": "{{1.queryResult.parameters.Email}}",
+                    "9": "{{1.queryResult.parameters.PhoneNumber}}",
+                    "10": "{{1.queryResult.parameters.Smoker}}",
+                    "11": "{{1.queryResult.parameters.Cancer}}",
+                    "13": "{{1.queryResult.parameters.Height}}",
+                    "14": "{{1.queryResult.parameters.Weight}}"
+                },
+                "sheetId": "CustomerData",
+                "spreadsheetId": "19fknPdYYVH_HHAD_Gx6cM6s-yXVrFq44quEIsKQXqpM",
+                "includesHeaders": true,
+                "insertDataOption": "INSERT_ROWS",
+                "valueInputOption": "USER_ENTERED"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "mode": {
+                        "label": "Select spreadsheet and sheet"
+                    },
+                    "sheetId": {
+                        "label": "CustomerData"
+                    },
+                    "__IMTCONN__": {
+                        "label": "digiBP (digibp2020@gmail.com)"
+                    },
+                    "spreadsheetId": {
+                        "label": "DigiBP"
+                    },
+                    "includesHeaders": {
+                        "label": "Yes"
+                    },
+                    "insertDataOption": {
+                        "mode": "chose",
+                        "label": "Insert rows"
+                    },
+                    "valueInputOption": {
+                        "mode": "chose",
+                        "label": "User entered"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Mode",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertDataOption",
+                        "type": "select",
+                        "label": "Insert data option",
+                        "validate": {
+                            "enum": [
+                                "INSERT_ROWS",
+                                "OVERWRITE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "select",
+                        "label": "Spreadsheet",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "spec": [
+                            {
+                                "name": "0",
+                                "type": "text",
+                                "label": "Zeitstempel (A)"
+                            },
+                            {
+                                "name": "1",
+                                "type": "text",
+                                "label": "Gender  (B)"
+                            },
+                            {
+                                "name": "2",
+                                "type": "text",
+                                "label": "Last Name (C)"
+                            },
+                            {
+                                "name": "3",
+                                "type": "text",
+                                "label": "First Name (D)"
+                            },
+                            {
+                                "name": "4",
+                                "type": "text",
+                                "label": "Street (E)"
+                            },
+                            {
+                                "name": "5",
+                                "type": "text",
+                                "label": "City  (F)"
+                            },
+                            {
+                                "name": "6",
+                                "type": "text",
+                                "label": "Age (DD/MM/YYYY) (G)"
+                            },
+                            {
+                                "name": "7",
+                                "type": "text",
+                                "label": "Age (H)"
+                            },
+                            {
+                                "name": "8",
+                                "type": "text",
+                                "label": "E-mail address (I)"
+                            },
+                            {
+                                "name": "9",
+                                "type": "text",
+                                "label": "Phone number (J)"
+                            },
+                            {
+                                "name": "10",
+                                "type": "text",
+                                "label": "Are you a smoker ?  (K)"
+                            },
+                            {
+                                "name": "11",
+                                "type": "text",
+                                "label": "To your knowledge, do you suffer or have you suffered from any kind of cancer ? (L)"
+                            },
+                            {
+                                "name": "12",
+                                "type": "text",
+                                "label": "Are you following a medical treatment ?  (M)"
+                            },
+                            {
+                                "name": "13",
+                                "type": "text",
+                                "label": "Please indicate you height in cm (N)"
+                            },
+                            {
+                                "name": "14",
+                                "type": "text",
+                                "label": "Please indicate your weight in kg (O)"
+                            },
+                            {
+                                "name": "15",
+                                "type": "text",
+                                "label": "By submitting I agree the terms and conditions (P)"
+                            },
+                            {
+                                "name": "16",
+                                "type": "text",
+                                "label": "BMI (Q)"
+                            },
+                            {
+                                "name": "17",
+                                "type": "text",
+                                "label": "Status (R)"
+                            },
+                            {
+                                "name": "18",
+                                "type": "text",
+                                "label": "Offer sent (S)"
+                            },
+                            {
+                                "name": "19",
+                                "type": "text",
+                                "label": "Offer accepted (T)"
+                            },
+                            {
+                                "name": "20",
+                                "type": "text",
+                                "label": "Policy sent (U)"
+                            },
+                            {
+                                "name": "21",
+                                "type": "text",
+                                "label": "(V)"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Values"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": false,
+            "sequential": false,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.integromat.com"
+    }
+}
