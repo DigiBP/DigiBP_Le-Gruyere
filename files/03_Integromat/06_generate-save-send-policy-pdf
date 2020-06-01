@@ -770,6 +770,7 @@
                     "name": "{{7.`3`}}{{space}}{{7.`2`}}",
                     "price": "{{7.`20`}}",
                     "timestamp": "{{formatDate(7.`0`; \"DD.MM.YYYY\")}}",
+                    "DateOfBirth": "{{7.`6`}}",
                     "insurancenumber": "{{random * 10000}}"
                 },
                 "templateId": "5ecacbb5bb82ab690334da1a"
@@ -814,6 +815,10 @@
                             },
                             {
                                 "name": "insurancenumber",
+                                "type": "text"
+                            },
+                            {
+                                "name": "DateOfBirth",
                                 "type": "text"
                             },
                             {
