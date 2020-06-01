@@ -1144,7 +1144,7 @@
                                     "17": "yes",
                                     "18": "no",
                                     "19": "no",
-                                    "20": "no"
+                                    "20": "{{7.`20`}}"
                                 },
                                 "sheetId": "CustomerData",
                                 "rowNumber": "{{7.`__ROW_NUMBER__`}}",

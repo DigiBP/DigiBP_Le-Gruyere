@@ -32,7 +32,6 @@
         <bpmn:flowNodeRef>Event_15156dy</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1xo2qey</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_005cp2v</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0yqjids</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_14r6i9w</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_05r3t2m</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_02w1bsv</bpmn:flowNodeRef>
@@ -41,6 +40,7 @@
         <bpmn:flowNodeRef>Gateway_0cdzs34</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_11zy6au</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1es9vaq</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0yqjids</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="Flow_1riq1bc" sourceRef="Start_Event" targetRef="Activity_11zy6au" />
@@ -228,22 +228,6 @@
       <bpmn:incoming>Flow_0ktcgar</bpmn:incoming>
       <bpmn:outgoing>Flow_13ntrch</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sendTask id="Activity_0yqjids" name="Send insurance policy to customer">
-      <bpmn:extensionElements>
-        <camunda:connector>
-          <camunda:inputOutput>
-            <camunda:inputParameter name="method">GET</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/3z7yp7bvh91im9xjhi0cu0jq8fhwpvds</camunda:inputParameter>
-          </camunda:inputOutput>
-          <camunda:connectorId>http-connector</camunda:connectorId>
-        </camunda:connector>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_13ntrch</bpmn:incoming>
-      <bpmn:outgoing>Flow_0b4or1f</bpmn:outgoing>
-      <bpmn:dataOutputAssociation id="DataOutputAssociation_035i6id">
-        <bpmn:targetRef>Flow_11xgzez</bpmn:targetRef>
-      </bpmn:dataOutputAssociation>
-    </bpmn:sendTask>
     <bpmn:userTask id="Activity_14r6i9w" name="Close the case" camunda:assignee="assistant">
       <bpmn:extensionElements>
         <camunda:formData>
@@ -412,6 +396,22 @@
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0uy92vg</bpmn:incoming>
       <bpmn:outgoing>Flow_1an84fr</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="Activity_0yqjids" name="Send insurance policy">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/3z7yp7bvh91im9xjhi0cu0jq8fhwpvds</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_13ntrch</bpmn:incoming>
+      <bpmn:outgoing>Flow_0b4or1f</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_035i6id">
+        <bpmn:targetRef>Flow_11xgzez</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
     </bpmn:sendTask>
   </bpmn:process>
   <bpmn:process id="Process_0jqjobq" isExecutable="false" />
