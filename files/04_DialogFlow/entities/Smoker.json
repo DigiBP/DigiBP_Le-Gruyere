@@ -1,0 +1,29 @@
+{
+  "isRegexp": false,
+  "isEnum": false,
+  "allowFuzzyExtraction": false,
+  "name": "Smoker",
+  "automatedExpansion": true,
+  "entries": [
+    {
+      "value": "Yes",
+      "synonyms": [
+        "Yes",
+        "sometimes",
+        "occasionally",
+        "rarely",
+        "do"
+      ]
+    },
+    {
+      "value": "No",
+      "synonyms": [
+        "No",
+        "never",
+        "don't"
+      ]
+    }
+  ],
+  "id": "56ae5d53-523a-464c-bd63-a98efbee82e7",
+  "isOverridable": false
+}
