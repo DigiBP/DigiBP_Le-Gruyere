@@ -1,0 +1,27 @@
+{
+  "isRegexp": false,
+  "isEnum": false,
+  "allowFuzzyExtraction": false,
+  "name": "CancerHistory",
+  "automatedExpansion": true,
+  "entries": [
+    {
+      "value": "Yes",
+      "synonyms": [
+        "Yes",
+        "I had",
+        "I have"
+      ]
+    },
+    {
+      "value": "No",
+      "synonyms": [
+        "No",
+        "never",
+        "I haven't"
+      ]
+    }
+  ],
+  "id": "e9c0c87a-1415-4a3c-9fae-b85c050b296f",
+  "isOverridable": false
+}

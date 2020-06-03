@@ -1,0 +1,25 @@
+{
+  "isRegexp": false,
+  "isEnum": false,
+  "allowFuzzyExtraction": false,
+  "name": "MedTreatment",
+  "automatedExpansion": true,
+  "entries": [
+    {
+      "value": "Yes",
+      "synonyms": [
+        "Yes",
+        "Yes I am"
+      ]
+    },
+    {
+      "value": "No",
+      "synonyms": [
+        "No",
+        "No, I'm not"
+      ]
+    }
+  ],
+  "id": "0bb08ef8-4e5d-46f1-afaa-7cb3be20f7ae",
+  "isOverridable": false
+}

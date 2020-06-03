@@ -1,0 +1,25 @@
+{
+  "isRegexp": false,
+  "isEnum": false,
+  "allowFuzzyExtraction": true,
+  "name": "Gender",
+  "automatedExpansion": true,
+  "entries": [
+    {
+      "value": "Male",
+      "synonyms": [
+        "Male",
+        "man"
+      ]
+    },
+    {
+      "value": "Female",
+      "synonyms": [
+        "Female",
+        "woman"
+      ]
+    }
+  ],
+  "id": "45f0d662-a73d-43c2-b858-8cb18184a25a",
+  "isOverridable": false
+}
