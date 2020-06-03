@@ -1,0 +1,302 @@
+{
+  "id": "ec96e373-32ba-4868-a2a0-1c9b9b705945",
+  "name": "Data Acquisition",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [],
+  "contexts": [],
+  "endInteraction": false,
+  "events": [],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": null,
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "FirstName",
+          "dataType": "@sys.given-name",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "May I know your first name?"
+          ],
+          "value": "$FirstName",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "LastName",
+          "dataType": "@sys.last-name",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "What is your last name"
+          ],
+          "value": "$LastName",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "BirthDate",
+          "dataType": "@sys.any",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Please give me your date of birth (format DD.MM.YYYY, e.g. 23.03.1983)"
+          ],
+          "value": "$BirthDate",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "AddrCity",
+          "dataType": "@sys.geo-city",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Please give me your city of residence."
+          ],
+          "value": "$City",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "AddrStreet",
+          "dataType": "@sys.address",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Please specify your residence address in \"Street no.\" format (e.g. Gartenstrasse 4/A)"
+          ],
+          "value": "$Street",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Gender",
+          "dataType": "@Gender",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Could you please let me know your gender?"
+          ],
+          "value": "$Gender",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Smoker",
+          "dataType": "@Smoker",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Do you smoke?"
+          ],
+          "value": "$Smoker",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Cancer",
+          "dataType": "@CancerHistory",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Have you ever had cancer?"
+          ],
+          "value": "$CancerHistory",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "MedTreatment",
+          "dataType": "@MedTreatment",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Are you following a medical treatment?"
+          ],
+          "value": "$MedTreatment",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Email",
+          "dataType": "@sys.email",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "What is your e-mail address?",
+            "May I know your e-mail address?"
+          ],
+          "value": "$E-mail",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "PhoneNumber",
+          "dataType": "@sys.phone-number",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Please give me your phone number"
+          ],
+          "value": "$PhoneNumber",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Weight",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "Please specify your weight in kilograms"
+          ],
+          "value": "$Weight",
+          "outputDialogContexts": []
+        },
+        {
+          "noInputPromptMessages": [],
+          "noMatchPromptMessages": [],
+          "promptMessages": [],
+          "defaultValue": "",
+          "name": "Height",
+          "dataType": "@sys.number-integer",
+          "isList": false,
+          "required": true,
+          "prompts": [
+            "How tall are you in cm?"
+          ],
+          "value": "$Height",
+          "outputDialogContexts": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "messages": [
+        {
+          "type": "message",
+          "condition": "",
+          "speech": [
+            "Thank you! Our customer assistant will contact you as soon as we are finished with calculating your policy."
+          ]
+        }
+      ],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": null,
+  "templates": [],
+  "userSays": [
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I am a ",
+          "userDefined": false
+        },
+        {
+          "text": "man",
+          "userDefined": true,
+          "alias": "Gender",
+          "meta": "@Gender"
+        }
+      ],
+      "count": 0,
+      "id": null,
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "I am a ",
+          "userDefined": false
+        },
+        {
+          "text": "woman",
+          "userDefined": true,
+          "alias": "Gender",
+          "meta": "@Gender"
+        }
+      ],
+      "count": 0,
+      "id": null,
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Female",
+          "userDefined": true,
+          "alias": "Gender",
+          "meta": "@Gender"
+        }
+      ],
+      "count": 0,
+      "id": null,
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "Male",
+          "userDefined": true,
+          "alias": "Gender",
+          "meta": "@Gender"
+        }
+      ],
+      "count": 0,
+      "id": null,
+      "updated": null
+    }
+  ],
+  "webhookForSlotFilling": false,
+  "webhookUsed": true
+}
